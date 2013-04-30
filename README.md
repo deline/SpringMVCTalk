@@ -1,4 +1,4 @@
 SpringMVCTalk
 =============
 
-Sprin MVC Talk
+Spring MVC Talk

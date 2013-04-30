@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Date: 30/04/13
  * Time: 10:03 PM
  */
-@Controller(value = "/addEntry")
+@Controller
 public class AddEntryController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/addEntry", method = RequestMethod.GET)
     public String addEntry() {
         return "addEntry";
     }

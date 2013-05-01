@@ -15,6 +15,8 @@
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>

@@ -10,6 +10,7 @@
     <script src="/resources/js/bootstrap.min.js"></script>
 
 <body>
-<h2>Sample App</h2>
+    <h2>Sample App</h2>
+    <a href="player/add">Add Player</a>
 </body>
 </html>

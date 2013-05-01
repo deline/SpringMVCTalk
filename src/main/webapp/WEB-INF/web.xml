@@ -15,7 +15,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring/spring-root-config.xml
+            classpath:spring/spring-app-config.xml
         </param-value>
     </context-param>
 

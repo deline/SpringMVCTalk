@@ -1,6 +1,9 @@
 package com.delineneo.web.controller;
 
+import com.delineneo.service.PlayerService;
 import com.delineneo.web.form.Player;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,12 +22,12 @@ import javax.validation.Valid;
 @RequestMapping(value = "/player")
 public class AddPlayerController {
 
+    @Autowired
+    private PlayerService playerService;
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPlayer(Model model) {
-        Player player = new Player();
-        player.setFirstName("Deline");
-        player.setLastName("Neo");
-        model.addAttribute(player);
+        model.addAttribute(new Player());
         return "addPlayer";
     }
 
@@ -33,7 +36,8 @@ public class AddPlayerController {
         if (result.hasErrors()) {
             return "addPlayer";
         } else {
-            return "addPlayer";
+            int playerId = playerService.save(player);
+            return "redirect:/player/" + playerId;
         }
     }
 }

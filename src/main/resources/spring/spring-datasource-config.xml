@@ -8,6 +8,7 @@
 
     <jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:schema/schema.sql"/>
+        <jdbc:script location="classpath:schema/data.sql"/>
     </jdbc:embedded-database>
 
 </beans>

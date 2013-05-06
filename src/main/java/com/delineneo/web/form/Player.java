@@ -2,14 +2,15 @@ package com.delineneo.web.form;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * User: deline
  * Date: 1/05/13
  * Time: 8:42 PM
  */
 public class Player {
+
+    private int id;
+
     @NotBlank(message = "Required field")
     private String firstName;
 
@@ -19,9 +20,18 @@ public class Player {
     public Player() {
     }
 
-    public Player(String firstName, String lastName) {
+    public Player(int id, String firstName, String lastName) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

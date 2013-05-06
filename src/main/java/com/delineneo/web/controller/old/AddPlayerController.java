@@ -24,9 +24,10 @@ public class AddPlayerController extends SimpleFormController {
 
     @Override
     protected ModelAndView onSubmit(Object command) throws Exception {
-        playerService.save((Player)command);
+        Player player = (Player) command;
+        int playerId = playerService.save(player);
         ModelAndView modelAndView = new ModelAndView(getSuccessView());
-        modelAndView.addObject("player");
+        modelAndView.addObject("player", playerService.getPlayer(playerId));
         return modelAndView;
     }
 }

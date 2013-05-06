@@ -22,6 +22,6 @@ public class ViewPlayerController extends AbstractCommandController {
 
     @Override
     protected ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new ModelAndView("playerDetails");
     }
 }

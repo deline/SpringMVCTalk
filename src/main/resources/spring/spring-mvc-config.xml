@@ -37,7 +37,7 @@
         <property name="mappings">
             <props>
                 <prop key="/oldstyle/player/add">oldStyleAddPlayerController</prop>
-                <prop key="/oldstyle/player">oldStyleAddPlayerController</prop>
+                <prop key="/oldstyle/player">oldStyleViewPlayerController</prop>
             </props>
         </property>
     </bean>

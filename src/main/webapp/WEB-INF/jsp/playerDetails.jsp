@@ -16,14 +16,20 @@
 <body>
 <div class="container">
     <h2>
-        View Player
+        View Player Details
     </h2>
-    ${player.firstName}
-
-
-    ${player}
-</div>
-
+    <div class="row">
+        <div class="span2">Player ID:</div>
+        <div class="span10">${player.id}</div>
+    </div>
+    <div class="row">
+        <div class="span2">First name:</div>
+        <div class="span10">${player.firstName}</div>
+    </div>
+    <div class="row">
+        <div class="span2">Last name:</div>
+        <div class="span10">${player.lastName}</div>
+    </div>
 </body>
 
 </html>

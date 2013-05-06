@@ -10,20 +10,25 @@
     <script src="/resources/js/bootstrap.min.js"></script>
 
 <body>
-    <h1>SpringMVCTalk Sample</h1>
+    <div class="container">
 
-    <div class="row">
-        <div class="span6">
-            <h2>Annotated Controllers</h2>
-            <ul>
-                <li><a href="player/add">Add Player</a></li>
-            </ul>
+        <h1><a href="http://localhost:8080">SpringMVCTalk Sample</a></h1>
+
+        <div class="row">
+            <div class="span6">
+                <h2>Annotated Controllers</h2>
+                <ul>
+                    <li><a href="player/add">Add Player</a></li>
+                    <li><a href="player/all">View All Players</a></li>
+                </ul>
+            </div>
+            <div class="span6">
+                <h2>Old style controllers</h2>
+                <li><a href="oldstyle/player/add">Add Player</a></li>
+                <li><a href="oldstyle/player/all">View All Players</a></li>
+            </div>
         </div>
-        <div class="span6">
-            <h2>Old style controllers</h2>
-            <li><a href="oldstyle/player/add">Add Player</a></li>
-        </div>
+
     </div>
-
 </body>
 </html>

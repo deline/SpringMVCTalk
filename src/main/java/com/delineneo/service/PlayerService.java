@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * User: deline
@@ -34,6 +35,17 @@ public class PlayerService {
             " INSERT INTO Player(firstName, lastName) VALUES(:firstName, :lastName);",
             params, keyHolder);
         return keyHolder.getKey().intValue();
+    }
+
+    //TODO: Implement this...
+    public List<Player> getAllPlayers() {
+        String sql = "SELECT id, firstName, lastName FROM Players";
+        return jdbcTemplate.query(sql, new RowMapper<Player>() {
+            @Override
+            public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return null;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+        });
     }
 
     public Player getPlayer(int playerId) {

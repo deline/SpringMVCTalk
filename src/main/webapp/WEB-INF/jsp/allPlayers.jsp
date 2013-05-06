@@ -17,23 +17,9 @@
     <div class="container">
 
         <h1><a href="http://localhost:8080">SpringMVCTalk Sample</a></h1>
-        <h2>Add New Player</h2>
+        <h2>All Players</h2>
         <div class="row">
-            <form:form modelAttribute="player" method="post" class="form-horizontal" id="add-player-form">
-                <div class="span12">
-                <form:label path="firstName" for="firstName">First Name</form:label>
-                <form:input path="firstName" id="firstName"/>
-                <form:errors path="firstName" cssClass="alert alert-error"/>
-                </div>
-                <div class="span12">
-                <form:label path="lastName" for="lastName">Last Name</form:label>
-                <form:input path="lastName" id="lastName"/>
-                <form:errors path="lastName" cssClass="alert alert-error"/>
-                </div>
-                <div class="span12">
-                <form:button name="submit">Submit</form:button>
-                </div>
-            </form:form>
+            Go put crap here
         </div>
     </div>
 

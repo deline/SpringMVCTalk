@@ -27,7 +27,8 @@
 
     <bean id="oldStyleAddPlayerController" class="com.delineneo.web.controller.old.AddPlayerController">
         <property name="formView" value="addPlayer"/>
-        <property name="successView" value="playerDetails"/>
+        <property name="successView" value="redirect:/oldstyle/player"/>
+        <!--<property name="successView" value="playerDetails"/>-->
         <property name="validator" ref="validator"/>
     </bean>
 

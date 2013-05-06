@@ -4,6 +4,7 @@ import com.delineneo.service.PlayerService;
 import com.delineneo.web.form.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +22,13 @@ public class ViewPlayerController {
     private PlayerService playerService;
 
     @RequestMapping(value = "{playerId}")
-    public String viewPlayerDetails(@PathVariable int playerId) {
+    public String viewPlayerDetails(@PathVariable int playerId, Model model) {
+        model.addAttribute("player", playerService.getPlayer(playerId));
         return "playerDetails";
     }
 
-    @ModelAttribute
-    public Player player(@PathVariable int playerId) {
-        return playerService.getPlayer(playerId);
+    @RequestMapping(value="/all")
+    public String viewAllPlayers() {
+        return "allPlayers";
     }
-
 }

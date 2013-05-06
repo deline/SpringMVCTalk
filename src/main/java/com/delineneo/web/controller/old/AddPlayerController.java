@@ -27,7 +27,7 @@ public class AddPlayerController extends SimpleFormController {
         Player player = (Player) command;
         int playerId = playerService.save(player);
         ModelAndView modelAndView = new ModelAndView(getSuccessView());
-        modelAndView.addObject("player", playerService.getPlayer(playerId));
+        modelAndView.addObject("id", playerId);
         return modelAndView;
     }
 }

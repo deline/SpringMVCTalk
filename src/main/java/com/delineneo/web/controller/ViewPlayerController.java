@@ -1,7 +1,10 @@
 package com.delineneo.web.controller;
 
+import com.delineneo.service.PlayerService;
+import com.delineneo.web.form.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,11 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/player")
 public class ViewPlayerController {
 
-
+    @Autowired
+    private PlayerService playerService;
 
     @RequestMapping(value = "{playerId}")
     public String viewPlayerDetails(@PathVariable int playerId) {
         return "playerDetails";
+    }
+
+    @ModelAttribute
+    public Player player(@PathVariable int playerId) {
+        return playerService.getPlayer(playerId);
     }
 
 }

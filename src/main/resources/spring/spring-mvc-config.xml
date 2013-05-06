@@ -22,4 +22,23 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
+    <!-- Old non-annotated style controllers -->
+
+    <bean id="oldStyleAddPlayerController" class="com.delineneo.web.controller.old.AddPlayerController">
+        <property name="formView" value="addPlayer"/>
+        <property name="successView" value="playerDetails"/>
+        <property name="validator" ref="validator"/>
+    </bean>
+
+    <bean id="oldStyleViewPlayerController" class="com.delineneo.web.controller.old.ViewPlayerController"/>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/oldstyle/player/add">oldStyleAddPlayerController</prop>
+                <prop key="/oldstyle/player">oldStyleAddPlayerController</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

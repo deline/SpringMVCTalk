@@ -2,6 +2,7 @@ package com.delineneo.service;
 
 import com.delineneo.web.form.Player;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -10,6 +11,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * User: deline
@@ -20,7 +24,6 @@ import javax.sql.DataSource;
 @Service
 public class PlayerService {
 
-    private SimpleJdbcInsert simpleJdbcInsert;
     private NamedParameterJdbcTemplate jdbcTemplate;
 
     public int save(final Player player) {
@@ -35,12 +38,21 @@ public class PlayerService {
         return keyHolder.getKey().intValue();
     }
 
+    public Player getPlayer(int playerId) {
+        String sql = "SELECT firstName, lastName from Player where id = :id";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", playerId);
+        return jdbcTemplate.queryForObject(sql, params,
+            new RowMapper<Player>() {
+                @Override
+                public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    return new Player(rs.getString(1), rs.getString(2));
+                }
+        });
+    }
+
     @Autowired
     public void setDataSource(DataSource dataSource) {
-        simpleJdbcInsert = new SimpleJdbcInsert(dataSource)
-            .withTableName("Player")
-            .usingGeneratedKeyColumns("id");
-
         jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 }

@@ -12,7 +12,7 @@
 <body>
     <div class="container">
 
-        <h1><a href="http://localhost:8080">SpringMVCTalk Sample</a></h1>
+        <h1><a href="/">SpringMVCTalk Sample</a></h1>
 
         <div class="row">
             <div class="span6">

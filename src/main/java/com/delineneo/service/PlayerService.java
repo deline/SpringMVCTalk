@@ -37,13 +37,12 @@ public class PlayerService {
         return keyHolder.getKey().intValue();
     }
 
-    //TODO: Implement this...
     public List<Player> getAllPlayers() {
-        String sql = "SELECT id, firstName, lastName FROM Players";
+        String sql = "SELECT id, firstName, lastName FROM Player";
         return jdbcTemplate.query(sql, new RowMapper<Player>() {
             @Override
             public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                return new Player(rs.getInt("id"), rs.getString("firstName"), rs.getString("lastName"));
             }
         });
     }
@@ -56,7 +55,7 @@ public class PlayerService {
             new RowMapper<Player>() {
                 @Override
                 public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
-                    return new Player(rs.getInt(1), rs.getString(2), rs.getString(3));
+                    return new Player(rs.getInt("id"), rs.getString("firstName"), rs.getString("lastName"));
                 }
         });
     }

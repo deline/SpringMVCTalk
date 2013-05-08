@@ -16,11 +16,15 @@
 <body>
     <div class="container">
 
-        <h1><a href="http://localhost:8080">SpringMVCTalk Sample</a></h1>
+        <h1><a href="/">SpringMVCTalk Sample</a></h1>
         <h2>All Players</h2>
-        <div class="row">
-            Go put crap here
-        </div>
+        <c:forEach items="${players}" var="player">
+            <div class="row">
+                <div class="span12">
+                    <a href="<c:url value="${player.id}"/>">${player.firstName} ${player.lastName}</a>
+                </div>
+            </div>
+        </c:forEach>
     </div>
 
 </body>

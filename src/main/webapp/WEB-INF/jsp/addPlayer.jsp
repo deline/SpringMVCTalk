@@ -16,7 +16,7 @@
 <body>
     <div class="container">
 
-        <h1><a href="http://localhost:8080">SpringMVCTalk Sample</a></h1>
+        <h1><a href="/">SpringMVCTalk Sample</a></h1>
         <h2>Add New Player</h2>
         <div class="row">
             <form:form modelAttribute="player" method="post" class="form-horizontal" id="add-player-form">

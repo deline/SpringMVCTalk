@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 /**
  * User: deline
  * Date: 2/05/13
@@ -28,7 +30,9 @@ public class ViewPlayerController {
     }
 
     @RequestMapping(value="/all")
-    public String viewAllPlayers() {
+    public String viewAllPlayers(Model model) {
+        List<Player> allPlayers = playerService.getAllPlayers();
+        model.addAttribute("players", allPlayers);
         return "allPlayers";
     }
 }

@@ -39,13 +39,12 @@ public class ModelErrorsResultMatchers {
                 return new TypeSafeMatcher<FieldError>() {
                     @Override
                     protected boolean matchesSafely(FieldError item) {
-                        assertThat(item.getField(), is(field));
-                        assertThat(item.getDefaultMessage(), is(expectedErrorMessage));
-                        return true;
+                        return StringUtils.equals(item.getField(), field) && StringUtils.equals(item.getDefaultMessage(), expectedErrorMessage);
                     }
 
                     @Override
                     public void describeTo(Description description) {
+                        description.appendText("Error message: " + expectedErrorMessage + " for field: " + field);
                     }
                 };
             }

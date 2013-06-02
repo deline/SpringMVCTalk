@@ -11,10 +11,10 @@ public class Player {
 
     private int id;
 
-    @NotBlank(message = "Required field")
+    @NotBlank(message = "First name is required")
     private String firstName;
 
-    @NotBlank(message = "Required field")
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
     public Player() {

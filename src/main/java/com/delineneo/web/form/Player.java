@@ -1,5 +1,6 @@
 package com.delineneo.web.form;
 
+import com.delineneo.web.validation.MyCustomConstraint;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -15,6 +16,7 @@ public class Player {
     private String firstName;
 
     @NotBlank(message = "Last name is required")
+    @MyCustomConstraint
     private String lastName;
 
     public Player() {

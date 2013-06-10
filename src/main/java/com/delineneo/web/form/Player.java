@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * Date: 1/05/13
  * Time: 8:42 PM
  */
+
 public class Player {
 
     private int id;

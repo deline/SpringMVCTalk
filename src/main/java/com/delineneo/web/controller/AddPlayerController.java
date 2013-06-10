@@ -3,7 +3,6 @@ package com.delineneo.web.controller;
 import com.delineneo.service.PlayerService;
 import com.delineneo.web.form.Player;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,22 +21,27 @@ import javax.validation.Valid;
 @RequestMapping(value = "/player")
 public class AddPlayerController {
 
-    @Autowired
     private PlayerService playerService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = {"/add", "/addV2"}, method = RequestMethod.GET)
     public String addPlayer(Model model) {
         model.addAttribute(new Player());
         return "addPlayer";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = {"/add", "/addV2"}, method = RequestMethod.POST)
     public String submit(@ModelAttribute @Valid Player player, BindingResult result) {
         if (result.hasErrors()) {
             return "addPlayer";
         } else {
             int playerId = playerService.save(player);
             return "redirect:/player/" + playerId;
+//            return "redirect:/player/" + 1;
         }
+    }
+
+    @Autowired
+    public void setPlayerService(PlayerService playerService) {
+        this.playerService = playerService;
     }
 }

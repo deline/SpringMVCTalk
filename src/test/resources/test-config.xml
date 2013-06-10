@@ -5,4 +5,5 @@
     <bean id="simpleService" class="org.easymock.EasyMock" factory-method="createNiceMock">
         <constructor-arg value="com.delineneo.service.SimpleService" />
     </bean>
+
 </beans>

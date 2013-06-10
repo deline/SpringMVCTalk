@@ -1,5 +1,4 @@
 import com.delineneo.ModelErrorsResultMatchers;
-import com.delineneo.web.controller.AddPlayerController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @ContextConfiguration({
         "classpath:spring/spring-mvc-config.xml",
-        "classpath:spring/spring-app-config.xml"
+        "classpath:spring/spring-app-config.xml",
 })
 @DirtiesContext
 public class PlayerValidationTest {
@@ -35,28 +34,29 @@ public class PlayerValidationTest {
 
     private MockMvc mockMvc;
 
+
     @Before
     public void setup() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
     @Test
     public void submitReturnsHttpOk() throws Exception {
         mockMvc.perform(
-            post("/player/add")
-                .param("firstName", "deline")
-                .param("lastName", "neo"))
-            .andExpect(status().isFound())
-            .andExpect(redirectedUrl("/player/1"));
+                post("/player/add")
+                        .param("firstName", "deline")
+                        .param("lastName", "neo"))
+                .andExpect(status().isFound())
+                .andExpect(redirectedUrl("/player/1"));
     }
 
     @Test
     public void submitWithValidationErrors() throws Exception {
         mockMvc.perform(
                 post("/player/add"))
-            .andExpect(status().isOk())
-            .andExpect(model().attributeHasFieldErrors("player", "firstName", "lastName"))
-            .andExpect(model().errorCount(2));
+                .andExpect(status().isOk())
+                .andExpect(model().attributeHasFieldErrors("player", "firstName", "lastName"))
+                .andExpect(model().errorCount(2));
     }
 
     @Test
